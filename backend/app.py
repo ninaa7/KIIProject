@@ -86,7 +86,7 @@ def delete_item(id):
     try:
         result = items_collection.delete_one({"_id": ObjectId(id)})
         if result.deleted_count == 1:
-            return jsonify({"message": "Item deleted successfully"}), 204
+            return jsonify({"message": "Item deleted successfully"}), 204  # No Content
         return jsonify({"error": "Item not found"}), 404
     except Exception:
         return jsonify({"error": "Invalid ID format"}), 400

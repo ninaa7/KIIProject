@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: kiiproject
+data:
+  mongo-host: "mongo"
+  mongo-database: "mydatabase"

@@ -68,14 +68,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My App</h1>
+      <h1>My CakeShop</h1>
 
       <div className="item-form">
-        <h2>{editingItem ? 'Edit Item' : 'Add New Item'}</h2>
+        <h2>{editingItem ? 'Edit Cake' : 'Add New Cake'}</h2>
         <form onSubmit={editingItem ? () => handleUpdateItem(editingItem._id, editingItem) : handleCreateItem}>
           <input
             type="text"
-            placeholder="Item Name"
+            placeholder="Cake Name"
             name="name"
             value={editingItem ? editingItem.name : newItemName}
             onChange={editingItem ? handleEditChange : (e) => setNewItemName(e.target.value)}
@@ -88,15 +88,15 @@ function App() {
             value={editingItem ? editingItem.description : newItemDescription}
             onChange={editingItem ? handleEditChange : (e) => setNewItemDescription(e.target.value)}
           />
-          <button type="submit">{editingItem ? 'Update Item' : 'Add Item'}</button>
+          <button type="submit">{editingItem ? 'Update Cake' : 'Add Cake'}</button>
           {editingItem && <button type="button" onClick={cancelEditing}>Cancel</button>}
         </form>
       </div>
 
       <div className="item-list">
-        <h2>Items</h2>
+        <h2>Cakes</h2>
         {items.length === 0 ? (
-          <p>No items yet. Add one above!</p>
+          <p>No cakes yet. Add one above!</p>
         ) : (
           <ul>
             {items.map(item => (

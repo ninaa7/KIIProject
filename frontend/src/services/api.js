@@ -1,13 +1,23 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL;
+let baseURL = "";
 
+const hostname = window.location.hostname;
+
+if (hostname === "localhost") {
+    baseURL = "http://localhost:5000";
+} else if (hostname === "kiiproject.local") {
+    baseURL = "/api";
+} else {
+    baseURL = "https://kiiproject.onrender.com";
+}
 const api = axios.create({
-    baseURL: API_URL,
+    baseURL,
     headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
     },
 });
+
 
 // API функции
 export const getItems = () => api.get('/items');
